@@ -15,6 +15,10 @@ return new class extends Migration
             $table->foreignId('delivery_note_id')->constrained();
             $table->foreignId('product_id')->constrained();
             $table->primary(['product_id', 'delivery_note_id']);
+            $table->string('vehicle_number')->nullable();
+            $table->string('driver_name')->nullable();
+            $table->string('driver_phone')->nullable();
+            $table->foreignId('route_id')->constrained();
             $table->decimal('quantity');
             $table->decimal('unit_price');
             $table->timestamps();

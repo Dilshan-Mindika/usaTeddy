@@ -12,4 +12,7 @@ class Bank extends Model
     function suppliers() {
         return $this->hasMany(Supplier::class);
     }
+    function employees() {
+        return $this->hasMany(Employee::class);
+    }
 }
