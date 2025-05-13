@@ -45,7 +45,7 @@
                     <!--begin::Brand Image-->
                     <img src="{{ asset('https://i.ibb.co/8LrLcLvS/Untitled-design.png') }}" alt="SeamSync Logo"
                         class="brand-image opacity-75 shadow"> <!--end::Brand Image--> <!--begin::Brand Text--> <span
-                        class="brand-text fw-light ">{{ env('APP_NAME', 'SeamSync') }}</span> <!--end::Brand Text--> </a>
+                        class="brand-text fw-bold ">{{ env('APP_NAME', 'SeamSync') }}</span> <!--end::Brand Text--> </a>
                 <!--end::Brand Link-->
             </div> <!--end::Sidebar Brand--> <!--begin::Sidebar Wrapper-->
             <x-sidebar-navigation  />
