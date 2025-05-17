@@ -23,6 +23,13 @@
                     <x-new-nav-link title="Create Bank" bi_icon="" route="admin.banks.create" />
                 </x-new-nav-link-dropdown>
             @endif
+            @if (auth()->user()->hasPermission('manage routes'))
+                <x-new-nav-link-dropdown title="Routes" bi_icon="bi-signpost" route="admin.routes*">
+                    <x-new-nav-link title="Manage Routes" bi_icon="" route="admin.routes.index" />
+                    <x-new-nav-link title="Create Route" bi_icon="" route="admin.routes.create" />
+                </x-new-nav-link-dropdown>
+            @endif
+            
             <li class="nav-header">CRM</li>
             @if (auth()->user()->hasPermission('manage clients'))
                 <x-new-nav-link-dropdown title="Customers" bi_icon="bi-people" route="admin.clients*">
@@ -35,9 +42,41 @@
                     <x-new-nav-link title="Supplier Overview" bi_icon="" route="admin.suppliers.index" />
                     <x-new-nav-link title="Create Supplier" bi_icon="" route="admin.suppliers.create" />
                 </x-new-nav-link-dropdown>
-
-                <li class="nav-header">Product Management</li>
             @endif
+            @if (auth()->user()->hasPermission('manage employees'))
+                <x-new-nav-link-dropdown title="Employees" bi_icon="bi-person-badge" route="admin.employees*">
+                    <x-new-nav-link title="Manage Employees" bi_icon="" route="admin.employees.index" />
+                    <x-new-nav-link title="Create Employee" bi_icon="" route="admin.employees.create" />
+                </x-new-nav-link-dropdown>
+            @endif
+
+            <li class="nav-header">Operations</li>
+            @if (auth()->user()->hasPermission('manage stock'))
+                <x-new-nav-link-dropdown title="Stock" bi_icon="bi-box-seam" route="admin.stocks*">
+                    <x-new-nav-link title="Manage Stock" bi_icon="" route="admin.stocks.index" />
+                    <x-new-nav-link title="Create Stock" bi_icon="" route="admin.stocks.create" />
+                </x-new-nav-link-dropdown>
+            @endif
+            @if (auth()->user()->hasPermission('manage cutting section'))
+                <x-new-nav-link-dropdown title="Cutting Section" bi_icon="bi-scissors" route="admin.cutting-sections*">
+                    <x-new-nav-link title="Manage Cutting Section" bi_icon="" route="admin.cutting-sections.index" />
+                    <x-new-nav-link title="Create Cutting Section" bi_icon="" route="admin.cutting-sections.create" />
+                </x-new-nav-link-dropdown>
+            @endif
+            @if (auth()->user()->hasPermission('manage half finish section'))
+                <x-new-nav-link-dropdown title="Half Finish Section" bi_icon="bi-pause-circle" route="admin.half-finish-sections*">
+                    <x-new-nav-link title="Manage Half Finish Section" bi_icon="" route="admin.half-finish-sections.index" />
+                    <x-new-nav-link title="Create Half Finish Section" bi_icon="" route="admin.half-finish-sections.create" />
+                </x-new-nav-link-dropdown>
+            @endif
+            @if (auth()->user()->hasPermission('manage finish section'))
+                <x-new-nav-link-dropdown title="Finish Section" bi_icon="bi-check-circle" route="admin.finish-sections*">
+                    <x-new-nav-link title="Manage Finish Section" bi_icon="" route="admin.finish-sections.index" />
+                    <x-new-nav-link title="Create Finish Section" bi_icon="" route="admin.finish-sections.create" />
+                </x-new-nav-link-dropdown>
+            @endif
+                
+                <li class="nav-header">Product Management</li>
             @if (auth()->user()->hasPermission('manage units'))
                 <x-new-nav-link-dropdown title="Units" bi_icon="bi-box" route="admin.units*">
                     <x-new-nav-link title="Units List" bi_icon="" route="admin.units.index" />
@@ -63,9 +102,8 @@
                     <x-new-nav-link title="Create Product" bi_icon="" route="admin.products.create" />
                 </x-new-nav-link-dropdown>
             @endif
+
             <li class="nav-header">Accounting & Inventory</li>
-
-
             @if (auth()->user()->hasPermission('manage purchases'))
                 <x-new-nav-link-dropdown title="Purchases" bi_icon="bi-cash-stack" route="admin.purchases*">
                     <x-new-nav-link title="Purchase Overview" bi_icon="" route="admin.purchases.index" />

@@ -165,4 +165,46 @@ Route::middleware([
         Route::get('/create', Admin\PurchasePayments\Create::class)->name('create');
         Route::get('{id}/edit', Admin\PurchasePayments\Edit::class)->name('edit');
     });
+    // Manage Routes
+Route::prefix('routes')->middleware('permission:manage routes')->name('routes.')->group(function () {
+    Route::get('/', Admin\Routes\Index::class)->name('index');
+    Route::get('/create', Admin\Routes\Create::class)->name('create');
+    Route::get('{id}/edit', Admin\Routes\Edit::class)->name('edit');
+});
+
+// Manage Employees
+Route::prefix('employees')->middleware('permission:manage employees')->name('employees.')->group(function () {
+    Route::get('/', Admin\Employees\Index::class)->name('index');
+    Route::get('/create', Admin\Employees\Create::class)->name('create');
+    Route::get('{id}/edit', Admin\Employees\Edit::class)->name('edit');
+});
+
+// Manage Stock
+Route::prefix('stocks')->middleware('permission:manage stock')->name('stocks.')->group(function () {
+    Route::get('/', Admin\Stocks\Index::class)->name('index');
+    Route::get('/create', Admin\Stocks\Create::class)->name('create');
+    Route::get('{id}/edit', Admin\Stocks\Edit::class)->name('edit');
+});
+
+// Cutting Section
+Route::prefix('cutting-sections')->middleware('permission:manage cutting section')->name('cutting-sections.')->group(function () {
+    Route::get('/', Admin\CuttingSections\Index::class)->name('index');
+    Route::get('/create', Admin\CuttingSections\Create::class)->name('create');
+    Route::get('{id}/edit', Admin\CuttingSections\Edit::class)->name('edit');
+});
+
+// Half Finish Section
+Route::prefix('half-finish-sections')->middleware('permission:manage half finish section')->name('half-finish-sections.')->group(function () {
+    Route::get('/', Admin\HalfFinishSections\Index::class)->name('index');
+    Route::get('/create', Admin\HalfFinishSections\Create::class)->name('create');
+    Route::get('{id}/edit', Admin\HalfFinishSections\Edit::class)->name('edit');
+});
+
+// Finish Section
+Route::prefix('finish-sections')->middleware('permission:manage finish section')->name('finish-sections.')->group(function () {
+    Route::get('/', Admin\FinishSections\Index::class)->name('index');
+    Route::get('/create', Admin\FinishSections\Create::class)->name('create');
+    Route::get('{id}/edit', Admin\FinishSections\Edit::class)->name('edit');
+});
+
 });
