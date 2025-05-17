@@ -20,5 +20,11 @@ return [
         'manage sales',
         'manage units',
         'manage payments',
+        'manage routes',
+        'manage employees',
+        'manage stock',
+        'manage cutting section',
+        'manage half finish section',
+        'manage finish section',
     ]
 ];
