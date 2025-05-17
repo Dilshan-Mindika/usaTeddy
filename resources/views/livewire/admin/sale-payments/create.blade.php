@@ -5,7 +5,7 @@
         <div class="col-md-6 col-4">
             <div class="card">
                 <div class="card-header bg-inv-secondary text-inv-primary border-0">
-                    <h5>Set Date & Client</h5>
+                    <h5>Set Date & Customer</h5>
                 </div>
                 <div class="card-body">
                     <div class="row">
@@ -34,7 +34,7 @@
 
 
                         <div class="mb-3">
-                            <label for="" class="form-label">Client Search</label>
+                            <label for="" class="form-label">Customer Search</label>
                             <input type="text" wire:model.live='clientSearch' class="form-control" />
                             @error('sale.client_id')
                                 <small id="helpId" class="form-text text-danger">{{ $message }}</small>
@@ -74,7 +74,7 @@
                                         @foreach ($sale_payment->client->sales as $sale)
                                             <option value="{{ $sale->id }}">Sale #{{ $sale->id }} <br>
                                                 Balance:
-                                                KES {{ number_format($sale->total_balance) }}</option>
+                                                RS {{ number_format($sale->total_balance) }}</option>
                                         @endforeach
                                     @endif
                                 </select>
@@ -109,7 +109,7 @@
                         <thead>
                             <tr>
                                 <th>ID</th>
-                                <th>Client</th>
+                                <th>Customer</th>
                                 <th>Sale Date</th>
                                 <th>Total Amount</th>
                                 <th>Amount Allocated</th>
@@ -164,7 +164,7 @@
                                     </td>
                                     <td></td>
                                     <td style="font-size: 18px">
-                                        <strong>KES {{ number_format($total, 2) }}</strong>
+                                        <strong>RS {{ number_format($total, 2) }}</strong>
                                     </td>
                                     <td></td>
                                 </tr>

@@ -27,7 +27,7 @@
                             </td>
                             <td>
                                 <h5>{{ $payment->client->name }}</h5>
-                                <h6>Balance: <strong>KES {{ number_format($payment->client->balance, 2) }}</strong>
+                                <h6>Balance: <strong>RS {{ number_format($payment->client->balance, 2) }}</strong>
                                 </h6>
                             </td>
                             <td>

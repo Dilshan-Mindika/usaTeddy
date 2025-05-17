@@ -22,7 +22,7 @@
                     <div class="mb-3">
                         <label for="name" class="form-label">Email Address</label>
                         <input wire:model.live='client.email' type="email" class="form-control" name="email"
-                            id="name" aria-describedby="email" placeholder="Enter your Client's Email Address" />
+                            id="name" aria-describedby="email" placeholder="Enter your Customer's Email Address" />
                         @error('client.email')
                             <small id="" class="form-text text-danger">{{ $message }}</small>
                         @enderror
@@ -76,7 +76,7 @@
                 <div class="mb-3">
                     <label for="name" class="form-label">Account Number</label>
                     <input wire:model.live='client.account_number' type="text" class="form-control" name="name"
-                        id="name" aria-describedby="" placeholder="Enter Client's Account Number" />
+                        id="name" aria-describedby="" placeholder="Enter Customer's Account Number" />
                     @error('client.account_number')
                         <small id="" class="form-text text-danger">{{ $message }}</small>
                     @enderror
@@ -88,7 +88,7 @@
 
 
 
-            <button onclick="confirm('Are you sure you wish to create this Client')||event.stopImmediatePropagation()"
+            <button onclick="confirm('Are you sure you wish to create this Customer')||event.stopImmediatePropagation()"
                 wire:click='save' class="btn btn-dark text-inv-primary">Save</button>
         </div>
     </div>

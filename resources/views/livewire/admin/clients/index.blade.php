@@ -49,7 +49,7 @@
                                     <i class="bi bi-pencil-square"></i>
                                 </a>
                                 <button
-                                    onclick="confirm('Are you sure you wish to DELETE this client?')||event.stopImmediatePropagation()"
+                                    onclick="confirm('Are you sure you wish to DELETE this customer?')||event.stopImmediatePropagation()"
                                     class="btn btn-danger" wire:click='delete({{ $client->id }})'>
                                     <i class="bi bi-trash-fill"></i>
                                 </button>
