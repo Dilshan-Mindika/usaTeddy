@@ -74,9 +74,9 @@ Route::middleware([
     });
 
     Route::prefix('brands')->middleware('permission:manage brands')->name('brands.')->group(function () {
-        Route::get('/', Admin\Brands\Index::class)->name('index');
-        Route::get('/create', Admin\Brands\Create::class)->name('create');
-        Route::get('{id}/edit', Admin\Brands\Edit::class)->name('edit');
+        Route::get('/', Admin\brands\Index::class)->name('index');
+        Route::get('/create', Admin\brands\Create::class)->name('create');
+        Route::get('{id}/edit', Admin\brands\Edit::class)->name('edit');
     });
 
     Route::prefix('clients')->middleware('permission:manage clients')->name('clients.')->group(function () {

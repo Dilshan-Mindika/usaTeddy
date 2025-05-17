@@ -29,7 +29,7 @@
                     <x-new-nav-link title="Create Route" bi_icon="" route="admin.routes.create" />
                 </x-new-nav-link-dropdown>
             @endif
-            
+
             <li class="nav-header">CRM</li>
             @if (auth()->user()->hasPermission('manage clients'))
                 <x-new-nav-link-dropdown title="Customers" bi_icon="bi-people" route="admin.clients*">
