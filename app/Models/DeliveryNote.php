@@ -10,4 +10,8 @@ class DeliveryNote extends Model
     {
         return $this->belongsToMany(Product::class, 'delivery_note_product');
     }
+    function routes()
+    {
+        return $this->belongsTo(Route::class);
+    }
 }

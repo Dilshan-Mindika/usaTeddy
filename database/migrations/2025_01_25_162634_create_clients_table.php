@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('registration_number')->nullable();
             $table->foreignId('bank_id')->constrained();
             $table->string('account_number');
+            $table->foreignId('route_id')->constrained()->nullable();
             $table->timestamps();
         });
     }
