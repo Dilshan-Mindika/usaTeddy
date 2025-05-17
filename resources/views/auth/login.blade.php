@@ -2,7 +2,7 @@
     <x-authentication-card>
         <x-slot name="logo">
              <div class="flex justify-center">
-                <img src="https://i.ibb.co/8LrLcLvS/Untitled-design.png" alt="Logo" />
+                <img src="https://i.ibb.co/fz7vv9Kr/final.png" alt="Logo" />
             </div>
         </x-slot>
 
