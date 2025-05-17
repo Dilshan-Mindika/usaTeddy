@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('phone_number');
             $table->string('registration_number')->nullable();
             $table->foreignId('bank_id')->constrained();
+            $table->foreignId('route_id')->constrained();
             $table->string('account_number');
             $table->timestamps();
         });
