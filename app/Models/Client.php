@@ -10,6 +10,10 @@ class Client extends Model
         return $this->belongsTo(Bank::class);
     }
 
+    function route() {
+        return $this->belongsTo(Route::class);
+    }
+
     function sales()
     {
         return $this->hasMany(Sale::class);
