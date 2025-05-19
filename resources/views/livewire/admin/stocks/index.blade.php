@@ -34,15 +34,12 @@
                                 <a href="{{ route('admin.stocks.edit', $stock->id) }}" class="btn btn-secondary btn-sm">
                                     <i class="bi bi-pencil-square"></i>
                                 </a>
-                                <form action="{{ route('admin.stocks.destroy', $stock->id) }}"
-                                      method="POST" class="d-inline"
-                                      onsubmit="return confirm('Are you sure you want to delete this stock?');">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button class="btn btn-danger btn-sm">
-                                        <i class="bi bi-trash-fill"></i>
-                                    </button>
-                                </form>
+                                <button 
+                                    onclick="confirm('Are you sure you want to delete this stock?') || event.stopImmediatePropagation()" 
+                                    class="btn btn-danger btn-sm" 
+                                    wire:click="delete({{ $stock->id }})">
+                                    <i class="bi bi-trash-fill"></i>
+                                </button>
                             </td>
                         </tr>
                     @endforeach
