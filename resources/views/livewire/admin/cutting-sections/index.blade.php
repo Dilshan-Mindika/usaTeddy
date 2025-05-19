@@ -20,30 +20,32 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($cuttingSections as $cuttingsection)
+                    @forelse ($cuttingSections as $cuttingsection)
                         <tr>
-                            <td>{{ $section->id }}</td>
-                            <td>{{ $section->name }}</td>
-                            <td>{{ $section->quantity }}</td>
-                            <td>{{ $section->unit->name ?? 'N/A' }}</td>
-                            <td>{{ $section->product->name ?? 'N/A' }}</td> <!-- Fetch product name -->
-                            <td>{{ \Carbon\Carbon::parse($section->date)->format('d M Y') }}</td>
+                            <td>{{ $cuttingsection->id }}</td>
+                            <td>{{ $cuttingsection->name }}</td>
+                            <td>{{ $cuttingsection->quantity }}</td>
+                            <td>{{ $cuttingsection->unit->name ?? 'N/A' }}</td>
+                            <td>{{ $cuttingsection->product->name ?? 'N/A' }}</td>
+                            <td>{{ \Carbon\Carbon::parse($cuttingsection->date)->format('d M Y') }}</td>
                             <td class="text-center">
-                                <a href="{{ route('admin.cutting_sections.edit', $section->id) }}" class="btn btn-secondary btn-sm">
+                                <a wire:navigate href="{{ route('admin.cutting-sections.edit', $cuttingsection->id) }}"
+                                   class="btn btn-secondary btn-sm">
                                     <i class="bi bi-pencil-square"></i>
                                 </a>
-                                <form action="{{ route('admin.cutting_sections.destroy', $section->id) }}"
-                                      method="POST" class="d-inline"
-                                      onsubmit="return confirm('Are you sure you want to delete this section?');">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button class="btn btn-danger btn-sm">
-                                        <i class="bi bi-trash-fill"></i>
-                                    </button>
-                                </form>
+                                <button
+                                    onclick="confirm('Are you sure you want to delete this section?') || event.stopImmediatePropagation()"
+                                    class="btn btn-danger btn-sm"
+                                    wire:click="delete({{ $cuttingsection->id }})">
+                                    <i class="bi bi-trash-fill"></i>
+                                </button>
                             </td>
                         </tr>
-                    @endforeach
+                    @empty
+                        <tr>
+                            <td colspan="7" class="text-center text-muted">No cutting sections found.</td>
+                        </tr>
+                    @endforelse
                 </tbody>
             </table>
         </div>

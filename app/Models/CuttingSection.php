@@ -6,7 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class CuttingSection extends Model
 {
-      public function product()
+    protected $fillable = [
+        'name',
+        'quantity',
+        'unit_id',
+        'product_id',
+        'date',
+    ];
+
+    public function product()
     {
         return $this->belongsTo(Product::class);
     }
