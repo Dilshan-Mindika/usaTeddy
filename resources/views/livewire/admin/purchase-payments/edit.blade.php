@@ -74,7 +74,7 @@
                                         @foreach ($purchase_payment->supplier->purchases as $purchase)
                                             <option value="{{ $purchase->id }}">Purchase #{{ $purchase->id }} <br>
                                                 Balance:
-                                                KES {{ number_format($purchase->total_balance) }}</option>
+                                                RS {{ number_format($purchase->total_balance) }}</option>
                                         @endforeach
                                     @endif
                                 </select>
@@ -164,7 +164,7 @@
                                     </td>
                                     <td></td>
                                     <td style="font-size: 18px">
-                                        <strong>KES {{ number_format($total, 2) }}</strong>
+                                        <strong>RS {{ number_format($total, 2) }}</strong>
                                     </td>
                                     <td></td>
                                 </tr>

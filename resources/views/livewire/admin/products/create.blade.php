@@ -80,7 +80,7 @@
                 </div>
                 <div class="col-md-6 col-12">
                     <div class="mb-3">
-                        <label for="name" class="form-label">Purchase Price</label>
+                        <label for="name" class="form-label">Cost</label>
                         <input wire:model.live='product.purchase_price' type="number" min="0" step="0.1"
                             class="form-control" name="purchase_price" id="name" aria-describedby="purchase_price"
                             placeholder="Enter your Product's purchase price" />

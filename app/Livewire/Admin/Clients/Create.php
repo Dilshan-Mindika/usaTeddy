@@ -3,6 +3,7 @@
 namespace App\Livewire\Admin\Clients;
 
 use App\Models\Bank;
+use App\Models\Route;
 use App\Models\Client;
 use Livewire\Component;
 
@@ -19,13 +20,14 @@ class Create extends Component
     function rules()
     {
         return [
-            'client.name' => "required",                              // Client name is required
-            'client.email' => "required|email|unique:clients,email", // Email must be unique and valid
-            'client.address' => "required",                           // Address is required
-            'client.phone_number' => "required",                      // Phone number is required
-            'client.registration_number' => "nullable",               // Optional registration number
-            'client.bank_id' => "required",                           // Associated bank is required
-            'client.account_number' => "required",                    // Bank account number is required
+                'client.name' => "required",
+                'client.email' => "required|email|unique:clients,email",
+                'client.address' => "required",
+                'client.phone_number' => "required",
+                'client.registration_number' => "nullable",
+                'client.bank_id' => "required|exists:banks,id",
+                'client.account_number' => "required",
+                'client.route_id' => "required|exists:routes,id",
         ];
     }
 
@@ -70,7 +72,8 @@ class Create extends Component
     public function render()
     {
         return view('livewire.admin.clients.create', [
-            'banks' => Bank::all(), // Fetch all banks for the bank select dropdown
-        ]);
+        'banks' => Bank::all(),
+        'routes' => Route::all(),
+    ]);
     }
 }

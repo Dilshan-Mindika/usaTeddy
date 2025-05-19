@@ -61,6 +61,20 @@
                 </div>
 
                 <div class="mb-3">
+                    <label for="" class="form-label">Route</label>
+                    <select wire:model.live='client.route_id' class="form-select" id="">
+                        <option value="">Select a Route</option>
+                        @foreach ($routes as $route)
+                            <option value="{{ $route->id }}">{{ $route->name }}</option>
+                        @endforeach
+                    </select>
+                    @error('client.route_id')
+                        <small class="form-text text-danger">{{ $message }}</small>
+                    @enderror
+                </div>
+
+
+                <div class="mb-3">
                     <label for="" class="form-label">Bank</label>
                     <select wire:model.live='client.bank_id' class="form-select " name=""
                         id="">

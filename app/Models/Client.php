@@ -6,6 +6,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class Client extends Model
 {
+    protected $fillable = [
+    'name',
+    'email',
+    'address',
+    'phone_number',
+    'registration_number',
+    'bank_id',
+    'account_number',
+    'route_id',
+];
+
     function bank() {
         return $this->belongsTo(Bank::class);
     }

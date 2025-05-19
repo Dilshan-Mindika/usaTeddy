@@ -8,22 +8,26 @@ use Livewire\WithPagination;
 
 class Index extends Component
 {
-    use WithPagination;  // Include pagination functionality
+    use WithPagination; // Include pagination functionality
 
     public $deliveryNotes;
+    public $paginationLinks;
 
     public function mount()
     {
-        // Initially, fetch delivery notes for the component
-        // Using pagination here
-        $this->deliveryNotes = DeliveryNote::orderBy('created_at', 'desc')->paginate(10);
+        // Fetch paginated delivery notes
+        $paginatedData = DeliveryNote::orderBy('created_at', 'desc')->paginate(10);
+
+        // Extract the delivery notes and pagination links separately
+        $this->deliveryNotes = $paginatedData->items();  // Convert to an array of items
+        $this->paginationLinks = $paginatedData->links(); // Get pagination links
     }
 
     public function render()
     {
-        // Use already fetched paginated data
         return view('livewire.admin.delivery-notes.index', [
-            'deliveryNotes' => $this->deliveryNotes,  // Use paginated data
+            'deliveryNotes' => $this->deliveryNotes,  // List of delivery notes
+            'paginationLinks' => $this->paginationLinks, // Pagination links for the view
         ]);
     }
 }

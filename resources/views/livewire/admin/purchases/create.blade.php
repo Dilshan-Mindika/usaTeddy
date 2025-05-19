@@ -114,8 +114,8 @@
                                                     class="text-muted">{{ App\Models\Product::find($listItem['product_id'])->quantity . App\Models\Product::find($listItem['product_id'])->unit->name }}</small>
                                             </td>
                                             <td>{{ $listItem['quantity'] }}</td>
-                                            <td>KES {{ number_format($listItem['price'], 2) }}</td>
-                                            <td>KES{{ number_format($listItem['quantity'] * $listItem['price'], 2) }}
+                                            <td>RS {{ number_format($listItem['price'], 2) }}</td>
+                                            <td>RS{{ number_format($listItem['quantity'] * $listItem['price'], 2) }}
                                             </td>
                                             <td class="text-center">
                                                 @if ($listItem['quantity'] > 1)
@@ -148,7 +148,7 @@
                                         <td></td>
                                         <td></td>
                                         <td style="font-size: 18px">
-                                            <strong>KES {{ number_format($total, 2) }}</strong>
+                                            <strong>RS {{ number_format($total, 2) }}</strong>
                                         </td>
                                         <td></td>
                                     </tr>

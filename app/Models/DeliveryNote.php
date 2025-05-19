@@ -8,11 +8,13 @@ class DeliveryNote extends Model
 {
     // Allow mass assignment for these attributes
     protected $fillable = [
-        'route_id',  // Allow mass assignment for route_id
-        'product_id', // Assuming this field is relevant to the products pivot table
-        'quantity', // Add other relevant fields for the delivery note
-        'unit_price', // If you want to store unit price directly
-    ];
+    'route_id',
+    'product_id',   // or remove this if you're using the pivot table only
+    'quantity',
+    'unit_price',
+    'date',
+];
+
 
     // Define relationship with products (many-to-many relationship)
     public function products()
