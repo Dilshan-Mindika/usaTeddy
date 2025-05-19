@@ -22,21 +22,23 @@
                             <td>{{ $route->city }}</td>
                             <td>{{ $route->description ?? 'N/A' }}</td>
                             <td class="text-center">
+                                <!-- Edit button -->
                                 <a href="{{ route('admin.routes.edit', $route->id) }}" class="btn btn-secondary btn-sm">
                                     <i class="bi bi-pencil-square"></i>
                                 </a>
-                                <form action="{{ route('admin.routes.destroy', $route->id) }}" method="POST" class="d-inline"
-                                      onsubmit="return confirm('Are you sure you want to delete this route?');">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button class="btn btn-danger btn-sm">
-                                        <i class="bi bi-trash-fill"></i>
-                                    </button>
-                                </form>
+
+                                <!-- Delete button (using wire:click for Livewire delete) -->
+                                <button 
+                                    onclick="confirm('Are you sure you want to delete this route?') || event.stopImmediatePropagation()" 
+                                    class="btn btn-danger btn-sm" 
+                                    wire:click="delete({{ $route->id }})">
+                                    <i class="bi bi-trash-fill"></i>
+                                </button>
                             </td>
                         </tr>
                     @endforeach
 
+                    <!-- If no routes, show a message -->
                     @if ($routes->isEmpty())
                         <tr>
                             <td colspan="4" class="text-center text-muted">No routes found.</td>

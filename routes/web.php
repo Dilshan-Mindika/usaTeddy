@@ -207,4 +207,11 @@ Route::prefix('finish-sections')->middleware('permission:manage finish section')
     Route::get('{id}/edit', Admin\FinishSections\Edit::class)->name('edit');
 });
 
+// Routes
+Route::prefix('routes')->middleware('permission:manage routes')->name('routes.')->group(function () {
+    Route::get('/', Admin\Routes\Index::class)->name('index');
+    Route::get('/create', Admin\Routes\Create::class)->name('create');
+    Route::get('{id}/edit', Admin\Routes\Edit::class)->name('edit');
+});
+
 });
