@@ -19,7 +19,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($finishSections as $section)
+                    @forelse ($finishSections as $section)
                         <tr>
                             <td>{{ $section->id }}</td>
                             <td>{{ $section->product->name ?? 'N/A' }}</td>
@@ -27,21 +27,23 @@
                             <td>{{ $section->unit->name ?? 'N/A' }}</td>
                             <td>{{ \Carbon\Carbon::parse($section->date)->format('d M Y') }}</td>
                             <td class="text-center">
-                                <a href="{{ route('admin.finish-sections.edit', $section->id) }}" class="btn btn-secondary btn-sm">
+                                <a wire:navigate href="{{ route('admin.finish-sections.edit', $section->id) }}"
+                                   class="btn btn-secondary btn-sm">
                                     <i class="bi bi-pencil-square"></i>
                                 </a>
-                                <form action="{{ route('admin.finish_sections.destroy', $section->id) }}"
-                                      method="POST" class="d-inline"
-                                      onsubmit="return confirm('Are you sure you want to delete this section?');">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button class="btn btn-danger btn-sm">
-                                        <i class="bi bi-trash-fill"></i>
-                                    </button>
-                                </form>
+                                <button
+                                    onclick="confirm('Are you sure you want to delete this section?') || event.stopImmediatePropagation()"
+                                    class="btn btn-danger btn-sm"
+                                    wire:click="delete({{ $section->id }})">
+                                    <i class="bi bi-trash-fill"></i>
+                                </button>
                             </td>
                         </tr>
-                    @endforeach
+                    @empty
+                        <tr>
+                            <td colspan="6" class="text-center text-muted">No finish sections found.</td>
+                        </tr>
+                    @endforelse
                 </tbody>
             </table>
         </div>
