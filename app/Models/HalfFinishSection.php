@@ -6,13 +6,21 @@ use Illuminate\Database\Eloquent\Model;
 
 class HalfFinishSection extends Model
 {
-    public function product()
-    {
-        return $this->belongsTo(Product::class);
-    }
+    protected $fillable = [
+        'name',
+        'quantity',
+        'unit_id',
+        'product_id',
+        'date',
+    ];
 
     public function unit()
     {
         return $this->belongsTo(Unit::class);
+    }
+
+    public function product()
+    {
+        return $this->belongsTo(Product::class);
     }
 }

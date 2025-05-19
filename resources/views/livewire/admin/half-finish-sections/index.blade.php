@@ -20,30 +20,32 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($halfFinishSections as $halfFinishSection)
+                    @forelse ($halfFinishSections as $halfFinishSection)
                         <tr>
-                            <td>{{ $section->id }}</td>
-                            <td>{{ $section->name }}</td>
-                            <td>{{ $section->quantity }}</td>
-                            <td>{{ $section->unit->name ?? 'N/A' }}</td>
-                            <td>{{ $section->product->name ?? 'N/A' }}</td> <!-- Fetch product name -->
-                            <td>{{ \Carbon\Carbon::parse($section->date)->format('d M Y') }}</td>
+                            <td>{{ $halfFinishSection->id }}</td>
+                            <td>{{ $halfFinishSection->name }}</td>
+                            <td>{{ $halfFinishSection->quantity }}</td>
+                            <td>{{ $halfFinishSection->unit->name ?? 'N/A' }}</td>
+                            <td>{{ $halfFinishSection->product->name ?? 'N/A' }}</td>
+                            <td>{{ \Carbon\Carbon::parse($halfFinishSection->date)->format('d M Y') }}</td>
                             <td class="text-center">
-                                <a href="{{ route('admin.half-finish-sections.edit', $section->id) }}" class="btn btn-secondary btn-sm">
+                                <a wire:navigate href="{{ route('admin.half-finish-sections.edit', $halfFinishSection->id) }}"
+                                   class="btn btn-secondary btn-sm">
                                     <i class="bi bi-pencil-square"></i>
                                 </a>
-                                <form action="{{ route('admin.half-finish-sections.destroy', $section->id) }}"
-                                      method="POST" class="d-inline"
-                                      onsubmit="return confirm('Are you sure you want to delete this section?');">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button class="btn btn-danger btn-sm">
-                                        <i class="bi bi-trash-fill"></i>
-                                    </button>
-                                </form>
+                                <button
+                                    onclick="confirm('Are you sure you want to delete this section?') || event.stopImmediatePropagation()"
+                                    class="btn btn-danger btn-sm"
+                                    wire:click="delete({{ $halfFinishSection->id }})">
+                                    <i class="bi bi-trash-fill"></i>
+                                </button>
                             </td>
                         </tr>
-                    @endforeach
+                    @empty
+                        <tr>
+                            <td colspan="7" class="text-center text-muted">No half finish sections found.</td>
+                        </tr>
+                    @endforelse
                 </tbody>
             </table>
         </div>
