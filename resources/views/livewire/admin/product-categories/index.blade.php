@@ -3,7 +3,7 @@
 
     <div class="card">
         <div class="card-header bg-inv-secondary text-inv-primary border-0">
-            <h5>Product Categorie Overview</h5>
+            <h5>Product Categories Overview</h5>
         </div>
         <div class="card-body table-responsive">
             <table class="table table-hover  ">

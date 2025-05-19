@@ -6,7 +6,6 @@
             <h5>Create a New Cutting Section</h5>
         </div>
         <div class="card-body">
-
             <div class="mb-3">
                 <label class="form-label">Name</label>
                 <input wire:model.live="section.name" type="text" class="form-control" placeholder="Enter section name">
@@ -15,7 +14,7 @@
 
             <div class="mb-3">
                 <label class="form-label">Quantity</label>
-                <input wire:model.live="section.quantity" type="number" class="form-control" placeholder="Enter quantity" step="0.01">
+                <input wire:model.live="section.quantity" type="number" class="form-control" placeholder="Enter quantity">
                 @error('section.quantity') <small class="text-danger">{{ $message }}</small> @enderror
             </div>
 
@@ -38,3 +37,18 @@
                         <option value="{{ $product->id }}">{{ $product->name }}</option>
                     @endforeach
                 </select>
+                @error('section.product_id') <small class="text-danger">{{ $message }}</small> @enderror
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Date</label>
+                <input wire:model.live="section.date" type="date" class="form-control">
+                @error('section.date') <small class="text-danger">{{ $message }}</small> @enderror
+            </div>
+
+            <button wire:click="save"
+                    onclick="confirm('Are you sure you want to create this section?') || event.stopImmediatePropagation()"
+                    class="btn btn-dark text-inv-primary">Save</button>
+        </div>
+    </div>
+</div>
