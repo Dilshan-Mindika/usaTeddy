@@ -162,6 +162,15 @@
                         route="admin.delivery-notes.create" />
                 </x-new-nav-link-dropdown>
             @endif
+
+            <li class="nav-item">
+                <a href="https://drive.google.com/file/d/1IM7HiYp9JLVPuCCgYkcs3EAOFPcmqMBy/view?usp=sharing" class="nav-link" target="_blank">
+                <i class="bi bi-file-earmark-text nav-icon"></i>
+                    <p>User Manual</p>
+                </a>
+            </li>
+
+            
         </ul> <!--end::Sidebar Menu-->
     </nav>
 </div>
