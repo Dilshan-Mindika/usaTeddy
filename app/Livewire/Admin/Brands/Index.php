@@ -18,7 +18,7 @@ class Index extends Component
 
             $this->dispatch('done', success: "Successfully Deleted this Brand");
         } catch (\Throwable $th) {
-            //throw $th;
+            
             $this->dispatch('done', error: "Something went wrong: " . $th->getMessage());
         }
     }
