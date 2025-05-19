@@ -20,7 +20,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($cuttingSections as $section)
+                    @foreach ($cuttingSections as $cuttingsection)
                         <tr>
                             <td>{{ $section->id }}</td>
                             <td>{{ $section->name }}</td>

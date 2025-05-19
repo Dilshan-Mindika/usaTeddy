@@ -9,7 +9,7 @@ class Index extends Component
 {
     public function render()
     {
-        return view('livewire.admin.delivery-notes.index', [
+        return view('livewire.admin.delivery-notes.index',data: [
             'deliveryNotes' => DeliveryNote::all()
         ]);
     }

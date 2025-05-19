@@ -9,7 +9,7 @@ class Index extends Component
 {
     public function render()
     {
-        return view('livewire.admin.stocks.index', [
+        return view('livewire.admin.stocks.index',data: [
             'stocks' => Stock::all()
         ]);
     }

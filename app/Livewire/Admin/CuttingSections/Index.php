@@ -9,7 +9,7 @@ class Index extends Component
 {
     public function render()
     {
-        return view('livewire.admin.cutting-sections.index', [
+        return view('livewire.admin.cutting-sections.index',data: [
             'cuttingSections' => CuttingSection::all()
         ]);
     }

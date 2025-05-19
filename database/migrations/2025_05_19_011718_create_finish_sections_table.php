@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('finish_sections', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('product_id')->constrained();
+            $table->float('quantity');
+            $table->foreignId('unit_id')->constrained();
+            $table->date('date');
             $table->timestamps();
         });
     }
